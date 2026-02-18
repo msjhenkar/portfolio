@@ -1,0 +1,45 @@
+.projects{
+    position: relative;
+    padding: 0px 80px;
+    /* background: linear-gradient(to bottom, #0b0f1a,#070b14); */
+    color:white;
+}
+
+.projects::before{
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 600px;
+    height: 400px;
+    /* background: radial-gradient(Circle,rgba(140,0,255,0.4), transparent 70%); */
+}
+
+.projects h2{
+    font-size: 48px;
+    background: linear-gradient(90deg, #a855f7, #6366f1);
+    background-clip: text;
+    color: transparent;
+}
+
+.projects-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+    gap: 40px;
+    margin-top: 80px;
+}
+
+.project-card{
+    background: rgba(255,255,255,0.05);
+    backdrop-filter:  blur(12px);
+    border: 1px solid rgba(168,85,247,0.4);
+    border-radius:20px;
+    padding: 30px;
+    transition: 0.4s ease;
+}
+
+.project-card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+}

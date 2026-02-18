@@ -1,0 +1,41 @@
+.tech-circle{
+    position: relative;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.1);
+    left: 0%;
+    overflow: hidden;
+
+}
+
+.icon{
+    position: absolute;
+    font-size: 40px;
+    animation: float 4s ease-in-out infinite;
+    opacity: 0.9;
+}
+
+/* Individual positioning inside circle */
+.react { top: 20%; left: 30%; color: #61DBFB; }
+.js { top: 75%; left: 20%; color: #f7df1e; }
+.java { top: 50%; right: 15%; color: #68a063; }
+.python { top: 25%; right: 25%; color: #e34c26; }
+.css { bottom: 20%; left: 40%; color: #264de4; }
+.github { top: 75%; left: 60%; color: #f1502f; }
+.mysql {top: 40%; left: 20%;}
+
+/* Add different delays */
+.icon:nth-child(1) { animation-delay: 0s; }
+.icon:nth-child(2) { animation-delay: 1s; }
+.icon:nth-child(3) { animation-delay: 2s; }
+.icon:nth-child(4) { animation-delay: 3s; }
+.icon:nth-child(5) { animation-delay: 4s; }
+.icon:nth-child(6) { animation-delay: 5s; }
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
