@@ -1,7 +1,8 @@
 import React from 'react'
-import Navbar from './components/layout/Navbar'
-import Hero from './components/sections/Hero'
-import Projects from './components/sections/Projects'
+import Navbar from './layout/Navbar'
+import Hero from './sections/Hero'
+import Skills from './sections/Skills'
+import Projects from './sections/Projects'
 import Particles from './reactBits/Particlesbackground'
 
 const App = () => {
@@ -20,9 +21,10 @@ const App = () => {
           />
 
       <div className="content">
-         <Navbar />
-      <Hero />
-      <Projects />
+        <Navbar />
+        <Hero />
+        <Skills />
+        <Projects />
       </div>
     </div>
   )
