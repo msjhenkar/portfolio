@@ -1,6 +1,14 @@
 import React from 'react'
 import '../styles/Navbar.css'
-const Navbar = () => {
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+
+const Navbar = ({ homeRef, projectRef, contactRef, aboutRef }) => {
+
+  const scrollToSection = (ref) => {
+    if (ref && ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" })
+    }
+  }
   return (
     <nav className='navbar'>
 
@@ -9,12 +17,17 @@ const Navbar = () => {
         <div className='logo'>Jhenkar MS</div>
 
         <ul className='nav-links'>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Contact</a></li>
+          <li onClick={() => scrollToSection(homeRef)}>Home</li>
+          <li onClick={() => scrollToSection(aboutRef)}>About</li>
+          <li onClick={() => scrollToSection(projectRef)}>Projects</li>
+          <li onClick={() => scrollToSection(contactRef)}>Contact</li>
         </ul>
-        <button className="nav-btn">Get Started</button>
+
+        <div className='nav-btn-container'>
+          <FaGithub onClick={() => window.open("https://github.com/msjhenkar")} className='nav-icon' />
+          <FaLinkedin onClick={() => window.open("https://github.com/msjhenkar")} className='nav-icon' />
+
+        </div>
       </div>
     </nav>
   )

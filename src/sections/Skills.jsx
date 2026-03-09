@@ -1,27 +1,27 @@
-import React from 'react'
-import {motion} from 'framer-motion'
+import React, { forwardRef } from 'react'
+import { motion } from 'framer-motion'
 import "../styles/skills.css"
-import { FaReact, FaHtml5,FaJava,FaPython,FaGitAlt } from 'react-icons/fa'
-import { SiDjango, SiMysql, SiPostgresql} from 'react-icons/si';
+import { FaReact, FaHtml5, FaJava, FaPython, FaGitAlt } from 'react-icons/fa'
+import { SiDjango, SiMysql, SiPostgresql } from 'react-icons/si';
 
 
 const skills = [
-  {icon: <FaJava />, name: "Java"},
-  {icon: <FaPython />, name: "Python"},
-  {icon: <FaReact />, name: "React"},
-  {icon: <FaHtml5 />, name: "HTML"},
-  {icon: <SiMysql />, name: "MySQL"},
-  {icon: <SiPostgresql />, name: "postgreSQL"},
-  {icon: <SiDjango />, name: "Django"},
-  {icon: <FaGitAlt />, name: "Git"},
+  { icon: <FaJava />, name: "Java" },
+  { icon: <FaPython />, name: "Python" },
+  { icon: <FaReact />, name: "React" },
+  { icon: <FaHtml5 />, name: "HTML" },
+  { icon: <SiMysql />, name: "MySQL" },
+  { icon: <SiPostgresql />, name: "postgreSQL" },
+  { icon: <SiDjango />, name: "Django" },
+  { icon: <FaGitAlt />, name: "Git" },
 
 ]
 
 
-const Skills = () => {
+const Skills = forwardRef((props, ref) => {
   return (
     <>
-    <section className="skills-section">
+      <section className="skills-section" ref={ref}>
 
         <h2 className='skills-title'>Tech Stack</h2>
 
@@ -39,13 +39,13 @@ const Skills = () => {
             },
           }}
         >
-          {skills.map((skill,index) => (
+          {skills.map((skill, index) => (
             <motion.div
               key={index}
               className='skill-card'
               variants={{
-                hidden: {opacity: 0, y:20},
-                visible: {opacity: 1, y:0},
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
               }}
               whileHover={{ y: -8 }}
             >
@@ -53,13 +53,13 @@ const Skills = () => {
               <p>{skill.name}</p>
             </motion.div>
           ))}
-            
+
         </motion.div>
 
-    </section>
+      </section>
     </>
-   
+
   )
-}
+})
 
 export default Skills

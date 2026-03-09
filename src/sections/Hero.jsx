@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import "../styles/Hero.css"
 import TechCircle from '../components/TechCircle'
 
 
-const Hero = () => {
+const Hero = forwardRef((props, ref) => {
     return (
-        <section className='hero'>
+        <section className='hero' ref={ref}>
             <div className="glow"></div>
-            
+
 
             <div className="hero-content">
                 <span className="badge">Full stack developer</span>
@@ -34,9 +34,9 @@ const Hero = () => {
             <div className="hero-visual">
                 <TechCircle />
             </div>
-            
+
         </section>
     )
-}
+})
 
 export default Hero

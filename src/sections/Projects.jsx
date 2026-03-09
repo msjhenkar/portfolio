@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import "../styles/Projects.css"
 import ProjectsCard from '../components/ProjectsCard'
 import projects from '../data/projectsData'
@@ -26,32 +26,33 @@ const itemVariants = {
   }
 };
 
-const Projects = () => {
+const Projects = forwardRef((props, ref) => {
   return (
-    <motion.section 
+    <motion.section
+      ref={ref}
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{once:false, amount: 0.2}}
+      viewport={{ once: false, amount: 0.2 }}
 
       className='projects'
-      >
-        {/* section Heading */}
-        <motion.div className="projects-header" variants={itemVariants}>
-          <h1>Projects</h1>
-          <p>Some Things I've Built</p>
-        </motion.div>
+    >
+      {/* section Heading */}
+      <motion.div className="projects-header" variants={itemVariants}>
+        <h1>Projects</h1>
+        <p>Some Things I've Built</p>
+      </motion.div>
 
 
-        <motion.div className="projects-grid" viewport={{ once: true, amount: 0.3 }}>
-          {projects.map((project, index) => (
-        <ProjectsCard key={index} {...project} />
-      ))}
+      <motion.div className="projects-grid" viewport={{ once: true, amount: 0.3 }}>
+        {projects.map((project, index) => (
+          <ProjectsCard key={index} {...project} />
+        ))}
 
-        </motion.div>
-        
+      </motion.div>
+
     </motion.section>
   )
-}
+})
 
 export default Projects
