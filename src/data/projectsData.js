@@ -1,28 +1,46 @@
 const projects = [
     {
+        title: "BrewCafe",
+        subtitle: "Cafe Management System",
+        description: "A full-stack cafe management application with Admin, Staff, and Customer roles.",
+        image: "/projects/brewcafe.png",
+        techStack: ["Java", "Spring Boot", "React", "MySQL", "JPA"],
+        github: "https://github.com/msjhenkar/BrewDesk",
+        isPrimary: true
+    },
+    {
+        title: "Job Tracker",
+        subtitle: "Application Tracking Platform",
+        description: "A full-stack application designed to organize, track, and manage job applications and interview stages efficiently.",
+        image: "/projects/job-tracker.png",
+        techStack: ["Java", "Spring Boot", "React", "MySQL", "REST APIs"],
+        github: "https://github.com/msjhenkar/application-tracker"
+    },
+    {
         title: "WanderLust",
-        description: "A Django based travel planner for organising trips efficiently. Plan your itineraries and track expenses seamlessly.",
-        image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=800&auto=format&fit=crop",
-        techStack: ["Django", "PostgreSQL", "React", "Tailwind"],
-        github: "https://github.com/yourusername/wanderlust",
-        // liveDemo: "https://wanderlust-demo.com",
+        subtitle: "Travel & Accommodation Platform",
+        description: "A travel and accommodation platform supporting property listings, authentication, and booking workflows.",
+        image: "/projects/wanderlust.png",
+        techStack: ["Django", "Django REST Framework", "React", "PostgreSQL", "JWT"],
+        github: "https://github.com/msjhenkar/WanderLust"
     },
     {
-        title: "Cry Baby Emotion Detection",
-        description: "ML model to detect baby emotions and generate lullabies automatically using deep learning algorithms.",
-        image: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?q=80&w=800&auto=format&fit=crop",
-        techStack: ["Python", "TensorFlow", "React", "FastAPI"],
-        github: "https://github.com/yourusername/crybaby",
-        // liveDemo: "https://crybaby-ai.com",
+        title: "Baby Cry Analyzer",
+        subtitle: "Emotion Detection & Lullaby Generator",
+        description: "An ML-based application that analyzes baby cries using audio features and generates appropriate lullabies.",
+        image: "/projects/baby-cry-analyzer.png",
+        techStack: ["Python", "TensorFlow", "Librosa", "Machine Learning"],
+        github: "https://github.com/msjhenkar/cry_analyzer"
     },
     {
-        title: "Portfolio Website",
-        description: "A modern developer portfolio built with React and Framer Motion, featuring smooth scroll animations and dynamic components.",
-        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop",
-        techStack: ["React", "Framer Motion", "CSS3"],
-        github: "https://github.com/yourusername/portfolio",
-        // liveDemo: "https://myportfolio.com",
+        title: "Portfolio",
+        subtitle: "Portfolio Website",
+        description: "A full-stack application designed to organize, track, and manage job applications and interview stages efficiently.",
+        image: "/projects/portfolio.png",
+        techStack: ["React", "CSS", "Framer Motion"],
+        github: "https://github.com/msjhenkar/portfolio"
     }
+
 ];
 
 export default projects;

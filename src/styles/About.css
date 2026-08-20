@@ -1,0 +1,307 @@
+/* =====================
+   About Section Base
+   ===================== */
+.about-section {
+    position: relative;
+    min-height: auto;
+    padding: 120px 80px;
+    color: white;
+    overflow: hidden;
+    z-index: 2;
+    background: transparent;
+}
+
+/* Background Glows */
+.about-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(140px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.25;
+}
+
+.about-glow-left {
+    top: 0;
+    left: -200px;
+    background: radial-gradient(circle, #a855f7, transparent 70%);
+}
+
+.about-glow-right {
+    width: 500px;
+    height: 500px;
+    bottom: 50px;
+    right: 50px;
+    background: radial-gradient(circle,
+            rgba(96, 165, 250, 0.25),
+            transparent 70%);
+}
+
+/* =====================
+   Header
+   ===================== */
+.about-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 1;
+}
+
+.about-badge {
+    display: inline-block;
+    padding: 6px 18px;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 20px;
+    background: rgba(168, 85, 247, 0.08);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    color: #c084fc;
+    font-weight: 600;
+}
+
+.about-title {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+}
+
+.about-title h2 {
+    justify-content: space-between;
+}
+
+.about-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #a855f7, #4cc9f0);
+    border-radius: 2px;
+    margin: 0 auto;
+    box-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+}
+
+/* =====================
+   Main Content Layout
+   ===================== */
+.about-content {
+    display: flex;
+    gap: 80px;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Left Column: Intro & Status */
+.about-col-left {
+    flex: 1;
+    max-width: 600px;
+}
+
+.about-intro p {
+    color: #cbd5e0;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    font-weight: 400;
+}
+
+.about-intro p:last-child {
+    margin-bottom: 0;
+}
+
+.about-availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 36px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 30px;
+}
+
+.about-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.6);
+    animation: pulse-dot 2s infinite;
+}
+
+.about-status-text {
+    color: #a0aec0;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+@keyframes pulse-dot {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6);
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+        box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
+    }
+}
+
+/* Right Column: Education & Tech */
+.about-col-right {
+    flex: 0 0 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.about-segment {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(168, 85, 247, 0.1);
+    border-radius: 16px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.about-segment-title {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #a855f7;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Education Segment */
+.about-degree {
+    font-size: 17px;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.about-edu-detail {
+    font-size: 15px;
+    color: #a0aec0;
+    margin: 4px 0;
+}
+
+.font-medium {
+    font-weight: 500;
+    color: #e2e8f0;
+}
+
+/* Technologies Badge List */
+.about-tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.about-tech-badge {
+    padding: 8px 16px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    border-radius: 20px;
+    color: #cbd5e0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+}
+
+.about-tech-badge:hover {
+    background: rgba(168, 85, 247, 0.08);
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.2);
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+/* gradient-text reuse */
+.gradient-text {
+    background: linear-gradient(90deg, #a855f7, #4cc9f0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* =====================
+   Responsive Design
+   ===================== */
+@media (max-width: 1024px) {
+    .about-section {
+        padding: 100px 50px;
+    }
+
+    .about-content {
+        gap: 50px;
+    }
+
+    .about-col-right {
+        flex: 0 0 380px;
+    }
+}
+
+@media (max-width: 900px) {
+    .about-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 40px;
+    }
+
+    .about-col-left {
+        max-width: 100%;
+    }
+
+    .about-col-right {
+        flex: none;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-section {
+        padding: 80px 24px;
+    }
+
+    .about-header {
+        margin-bottom: 50px;
+    }
+
+    .about-title {
+        font-size: 32px;
+    }
+
+    .about-intro p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .about-segment {
+        padding: 24px;
+    }
+
+    .about-degree {
+        font-size: 15px;
+    }
+
+    .about-edu-detail {
+        font-size: 13px;
+    }
+
+    .about-tech-badge {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}

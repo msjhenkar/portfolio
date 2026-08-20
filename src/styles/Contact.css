@@ -1,0 +1,441 @@
+/* =====================
+   Contact Section Base
+   ===================== */
+.contact-section {
+    position: relative;
+    min-height: 100vh;
+    padding: 100px 80px 60px;
+    color: white;
+    overflow: hidden;
+    z-index: 2;
+    background: transparent;
+}
+
+/* =====================
+   Background Glows
+   ===================== */
+.contact-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(130px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.25;
+}
+
+.contact-glow-left {
+    bottom: -100px;
+    left: -150px;
+    background: radial-gradient(circle, #4cc9f0, transparent 70%);
+}
+
+.contact-glow-right {
+    top: -100px;
+    right: -150px;
+    background: radial-gradient(circle, #a855f7, transparent 70%);
+}
+
+/* =====================
+   Header
+   ===================== */
+.contact-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-badge {
+    display: inline-block;
+    padding: 6px 18px;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 20px;
+    background: rgba(168, 85, 247, 0.1);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    color: #c77dff;
+}
+
+.contact-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.contact-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #a855f7, #4cc9f0);
+    border-radius: 2px;
+    margin: 0 auto 24px;
+}
+
+.contact-subtitle {
+    color: #b3b3b3;
+    font-size: 1.05rem;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* =====================
+   Two-column Layout
+   ===================== */
+.contact-content {
+    display: flex;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto 80px;
+    position: relative;
+    z-index: 1;
+}
+
+/* =====================
+   Left – Open to Opportunities
+   ===================== */
+.contact-left {
+    flex: 1;
+}
+
+.contact-info-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 40px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.contact-info-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+.contact-info-desc {
+    font-size: 0.95rem;
+    color: #a0a0a0;
+    line-height: 1.6;
+}
+
+/* Availability indicator */
+.contact-availability {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background: rgba(74, 222, 136, 0.06);
+    border: 1px solid rgba(74, 222, 136, 0.15);
+    border-radius: 12px;
+    font-size: 0.9rem;
+    color: #4ade80;
+    font-weight: 500;
+}
+
+.contact-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+    flex-shrink: 0;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { 
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); 
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 0 8px rgba(74, 222, 128, 0);
+        transform: scale(1.1);
+    }
+}
+
+/* Contact Links */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.contact-link-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    padding: 14px 20px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-link-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(168, 85, 247, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(168, 85, 247, 0.15);
+}
+
+.contact-link-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+}
+
+.contact-link-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.contact-link-label {
+    font-size: 0.75rem;
+    color: #777;
+    margin: 0 0 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+}
+
+.contact-link-value {
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Location display */
+.contact-location {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #888;
+    font-size: 0.875rem;
+    margin-top: 10px;
+    padding-left: 4px;
+}
+
+.location-icon {
+    width: 16px;
+    height: 16px;
+    color: #a855f7;
+}
+
+/* =====================
+   Right – CTA Panel
+   ===================== */
+.contact-right {
+    flex: 1;
+}
+
+.contact-cta-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 40px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.contact-cta-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+.contact-cta-desc {
+    font-size: 0.95rem;
+    color: #a0a0a0;
+    line-height: 1.6;
+    margin-bottom: 6px;
+}
+
+/* Action Buttons */
+.contact-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px 28px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+}
+
+.btn-icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* Connect on LinkedIn button style */
+.contact-btn-linkedin {
+    background: linear-gradient(135deg, #0a66c2, #0077b5);
+    color: white;
+    border: none;
+}
+
+.contact-btn-linkedin:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(10, 102, 194, 0.35);
+}
+
+/* Send an Email button style */
+.contact-btn-email {
+    background: rgba(168, 85, 247, 0.08);
+    color: white;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.contact-btn-email:hover {
+    background: rgba(168, 85, 247, 0.15);
+    border-color: rgba(168, 85, 247, 0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(168, 85, 247, 0.25);
+}
+
+/* View Resume button style */
+.contact-btn-resume {
+    background: rgba(255, 255, 255, 0.04);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-btn-resume:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+}
+
+/* Subtle Resume CTA */
+.contact-subtle-resume {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 24px;
+}
+
+.subtle-text {
+    color: #777;
+}
+
+.subtle-link {
+    color: #c77dff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.subtle-link:hover {
+    color: #4cc9f0;
+    text-decoration: underline;
+}
+
+/* =====================
+   Footer Strip
+   ===================== */
+.contact-footer {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    color: #555;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 30px;
+    margin-top: 40px;
+}
+
+/* gradient-text (matches other sections) */
+.gradient-text {
+    background: linear-gradient(90deg, #a855f7, #4cc9f0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* =====================
+   Responsive
+   ===================== */
+@media (max-width: 1024px) {
+    .contact-section { 
+        padding: 80px 40px 50px; 
+    }
+    .contact-content {
+        gap: 30px;
+    }
+    .contact-info-card,
+    .contact-cta-card {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 80px 24px 50px;
+    }
+    .contact-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .contact-left,
+    .contact-right {
+        width: 100%;
+    }
+    .contact-title {
+        font-size: 2.2rem;
+    }
+    .contact-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section { 
+        padding: 60px 16px 40px; 
+    }
+    .contact-title { 
+        font-size: 1.8rem; 
+    }
+    .contact-info-card,
+    .contact-cta-card {
+        padding: 24px 20px;
+    }
+}

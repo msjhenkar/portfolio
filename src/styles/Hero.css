@@ -1,8 +1,8 @@
-.hero{
+.hero {
     position: relative;
-    height: 100vh;
+    height: 90vh;
+    min-height: 700px;
     width: 100%;
-    /* background: transparent; */
     color: white;
     overflow: hidden;
 
@@ -12,91 +12,274 @@
     padding: 0 100px;
 }
 
-/* purple Glow at Top */
-.glow{
+/* Background grid overlay */
+.hero::before {
+    content: '';
     position: absolute;
-    top: -200px;
-    left: 50%;
-    transform: translate(-50%);
-    width: 800px;
-    height: 500px;
-    background: radial-gradient(circle ,#9d4edd 0%, transparent 70%);
-    filter: blur(120px);
-    opacity: 0.7;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: center;
+    pointer-events: none;
+    z-index: 0;
 }
 
+/* Background radial mask to fade grid out */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 20%, rgba(0, 0, 0, 0.9) 80%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Purple Glow behind heading */
+.glow {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 800px;
+    height: 400px;
+
+    background: radial-gradient(circle at center,
+            rgba(168, 85, 247, 0.3) 0%,
+            rgba(124, 58, 237, 0.15) 40%,
+            transparent 70%);
+
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 1;
+}
 
 .hero-content {
     flex: 1;
-    max-width: 600px;
-    text-align: left;
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.hero-title {
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    letter-spacing: -1.5px;
+}
 
-.badge {
-    display: inline-block;
-    padding: 6px 15px;
-    border: 1px solid #9d4edd;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    font-size: 14px;
+.hero-subtitle {
+    font-size: 28px;
+    font-weight: 600;
+    color: #a0aec0;
     margin-bottom: 20px;
+    letter-spacing: -0.5px;
 }
 
-.hero h1{
-    font-size: 60px;
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-
-.gradient-text{
-    background: linear-gradient(90deg, #9d4edd, #4cc9f0) ;
+.gradient-text {
+    background: linear-gradient(90deg, #a855f7, #4cc9f0);
     background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.hero p{
-    color: #cccccc;
+.hero-description {
+    color: #cbd5e0;
+    font-size: 18px;
     line-height: 1.6;
-    margin-bottom: 30px;
+    max-width: 600px;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+    justify-content: center;
 }
 
 .hero-btn {
     padding: 12px 30px;
     border: none;
     border-radius: 8px;
-    background: #7b2cbf;
+    background: linear-gradient(135deg, #7b2cbf, #9d4edd);
     color: white;
     font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
-    transition: 0.3s ease;
-
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(123, 44, 191, 0.4);
 }
 
-.button-group {
-  display: flex;
-  gap: 15px;
-  margin-top: 30px;
+.hero-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(123, 44, 191, 0.6);
+    background: linear-gradient(135deg, #9d4edd, #7b2cbf);
 }
 
 .hero-btn-outline {
-  padding: 12px 30px;
-  border-radius: 8px;
-  border: 1px solid #7b2cbf;
-  background: transparent;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s ease;
+    padding: 12px 30px;
+    border-radius: 8px;
+    border: 2px solid #7b2cbf;
+    background: transparent;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .hero-btn-outline:hover {
-  background: rgba(123, 44, 191, 0.2);
+    background: rgba(123, 44, 191, 0.15);
+    border-color: #9d4edd;
+    transform: translateY(-2px);
 }
 
-.hero-visual{
-    flex: 1;
+.skills-strip {
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.skill-badge {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #a0aec0;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-badge:hover {
+    background: rgba(157, 78, 221, 0.15);
+    border-color: rgba(157, 78, 221, 0.4);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.nav-btn-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
     justify-content: center;
 }
 
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    opacity: 1;
+}
+
+.scroll-text {
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6fadff;
+}
+
+.scroll-arrow {
+    font-size: 30px;
+    color: #c67fff;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(6px);
+    }
+}
+
+/* responsive */
+@media (max-width: 900px) {
+    .hero {
+        padding: 100px 30px 40px;
+        height: auto;
+        min-height: 90vh;
+    }
+
+    .hero-title {
+        font-size: 48px;
+    }
+
+    .hero-subtitle {
+        font-size: 24px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 80px 20px 60px;
+        min-height: 95vh;
+    }
+
+    .hero-title {
+        font-size: 38px;
+    }
+
+    .hero-subtitle {
+        font-size: 20px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    .hero-btn,
+    .hero-btn-outline {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .hero-btn,
+    .hero-btn-outline {
+        width: 100%;
+    }
+
+    .scroll-indicator {
+        bottom: 15px;
+    }
+}

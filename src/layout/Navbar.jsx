@@ -23,11 +23,11 @@ const Navbar = ({ homeRef, projectRef, contactRef, aboutRef }) => {
           <li onClick={() => scrollToSection(contactRef)}>Contact</li>
         </ul>
 
-        <div className='nav-btn-container'>
+        {/* <div className='nav-btn-container'>
           <FaGithub onClick={() => window.open("https://github.com/msjhenkar")} className='nav-icon' />
           <FaLinkedin onClick={() => window.open("https://github.com/msjhenkar")} className='nav-icon' />
 
-        </div>
+        </div> */}
       </div>
     </nav>
   )

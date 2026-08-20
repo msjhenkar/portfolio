@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import Navbar from './layout/Navbar'
 import Hero from './sections/Hero'
 import Skills from './sections/Skills'
+import About from './sections/About'
 import Projects from './sections/Projects'
 import Contact from './sections/Contact'
 import Particles from './reactBits/Particlesbackground'
@@ -16,12 +17,12 @@ const App = () => {
 
   return (
 
-
     <div className="app-wrapper">
       <Particles
-        particleColors={["#9d4edd"]}
-        particleCount={300}
-        particleSpread={8}
+
+        particleCount={4500}
+        particleSpread={10}
+        particleColors={["#8b5cf6", "#60a5fa", "#ffffff"]}
         speed={0.1}
         particleBaseSize={100}
         moveParticlesOnHover
@@ -37,8 +38,9 @@ const App = () => {
           projectRef={projectRef}
           contactRef={contactRef}
         />
-        <Hero ref={homeRef} />
-        <Skills ref={aboutRef} />
+        <Hero ref={homeRef} projectRef={projectRef} />
+        <About ref={aboutRef} />
+        <Skills />
         <Projects ref={projectRef} />
         <Contact ref={contactRef} />
       </div>
