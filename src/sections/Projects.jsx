@@ -83,13 +83,19 @@ const Projects = forwardRef((props, ref) => {
         const cards = container.querySelectorAll('.project-card');
         if (cards.length === 0) return;
 
-        const cardWidth = cards[0].clientWidth;
-        const gap = parseFloat(window.getComputedStyle(container).gap) || 24;
-        const step = cardWidth + gap;
-        const index = Math.round(container.scrollLeft / step);
+        // Find the card whose offsetLeft is closest to container.scrollLeft
+        let closestIndex = 0;
+        let minDiff = Infinity;
+        cards.forEach((card, index) => {
+          const diff = Math.abs(card.offsetLeft - container.scrollLeft);
+          if (diff < minDiff) {
+            minDiff = diff;
+            closestIndex = index;
+          }
+        });
 
-        if (index >= 0 && index < projects.length && index !== activeIndex) {
-          setActiveIndex(index);
+        if (closestIndex !== activeIndex) {
+          setActiveIndex(closestIndex);
         }
       }, 50);
     };
@@ -154,16 +160,24 @@ const Projects = forwardRef((props, ref) => {
     const cards = container.querySelectorAll('.project-card');
     if (cards.length === 0) return;
 
-    const cardWidth = cards[0].clientWidth;
-    const gap = parseFloat(window.getComputedStyle(container).gap) || 24;
-    const step = cardWidth + gap;
-    const index = Math.round(container.scrollLeft / step);
-
-    container.scrollTo({
-      left: index * step,
-      behavior: 'smooth'
+    let closestIndex = 0;
+    let minDiff = Infinity;
+    cards.forEach((card, index) => {
+      const diff = Math.abs(card.offsetLeft - container.scrollLeft);
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestIndex = index;
+      }
     });
-    setActiveIndex(index);
+
+    const targetCard = cards[closestIndex];
+    if (targetCard) {
+      container.scrollTo({
+        left: targetCard.offsetLeft,
+        behavior: 'smooth'
+      });
+      setActiveIndex(closestIndex);
+    }
   };
 
   // Prevent link/button click if user dragged the track
@@ -217,7 +231,7 @@ const Projects = forwardRef((props, ref) => {
           {projects.map((project, index) => (
             <ProjectsCard
               key={index}
-              number={`0${index + 1}`}
+              number={index + 1 < 10 ? `0${index + 1}` : `${index + 1}`}
               {...project}
             />
           ))}
@@ -236,7 +250,7 @@ const Projects = forwardRef((props, ref) => {
 
           <div className="projects-indicator-container">
             <span className="projects-page-number">
-              0{activeIndex + 1} / 0{projects.length}
+              {activeIndex + 1 < 10 ? `0${activeIndex + 1}` : activeIndex + 1} / {projects.length < 10 ? `0${projects.length}` : projects.length}
             </span>
             <div className="projects-progress-track" role="tablist">
               {projects.map((_, index) => (

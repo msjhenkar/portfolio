@@ -15,7 +15,9 @@ const ProjectsCard = ({
   number,
   title,
   subtitle,
+  category,
   description,
+  engineeringHighlights = [],
   image,
   techStack = [],
   github,
@@ -32,6 +34,45 @@ const ProjectsCard = ({
     return <FiMonitor className="placeholder-icon-svg" />;
   };
 
+  const renderScreenshot = (isMobileView) => {
+    if (!image || imageError) {
+      return (
+        <div className="project-image-placeholder">
+          <div className="placeholder-glow-effect"></div>
+          <div className="placeholder-inner">
+            <div className="placeholder-icon-wrapper">
+              {renderPlaceholderIcon()}
+            </div>
+            <div className="placeholder-details">
+              <span className="placeholder-project-title">{title}</span>
+              <span className="placeholder-tagline">Project Preview</span>
+            </div>
+            <div className="placeholder-mockup-elements">
+              <div className="mockup-line-long"></div>
+              <div className="mockup-line-short"></div>
+              <div className="mockup-dots">
+                <span className="mockup-dot"></span>
+                <span className="mockup-dot"></span>
+                <span className="mockup-dot"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <motion.img 
+        src={image} 
+        alt={`${title} screenshot`} 
+        className="project-image" 
+        onError={() => setImageError(true)}
+        whileHover={{ scale: 1.03 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+      />
+    );
+  };
+
   return (
     <motion.article 
       className={`project-card ${isPrimary ? 'primary-project' : ''}`}
@@ -46,13 +87,30 @@ const ProjectsCard = ({
       <div className="project-card-content">
         <div className="project-card-header-meta">
           <span className="project-number">{number}</span>
-          {isPrimary && <span className="featured-badge">Featured Work</span>}
+          {isPrimary && <span className="featured-badge">Featured Project</span>}
         </div>
+
+        {category && <span className="project-category">{category}</span>}
 
         <h3 className="project-title">{title}</h3>
         <p className="project-subtitle">{subtitle}</p>
         
         <p className="project-description">{description}</p>
+
+        {/* Engineering Highlights */}
+        {engineeringHighlights && engineeringHighlights.length > 0 && (
+          <div className="engineering-highlights">
+            <h4 className="highlights-title">ENGINEERING HIGHLIGHTS</h4>
+            <ul className="highlights-list">
+              {engineeringHighlights.slice(0, 4).map((highlight, index) => (
+                <li key={index} className="highlight-item">
+                  <span className="highlight-bullet">•</span>
+                  <span className="highlight-text">{highlight}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         <div className="tech-stack">
           {techStack.map((tech, index) => (
@@ -60,6 +118,14 @@ const ProjectsCard = ({
               {tech}
             </span>
           ))}
+        </div>
+
+        {/* Mobile screenshot container (hidden on desktop) */}
+        <div className="project-card-image-section mobile-screenshot-section">
+          <div className="project-image-container">
+            {renderScreenshot(true)}
+            {image && !imageError && <div className="project-image-overlay"></div>}
+          </div>
         </div>
 
         <div className="project-links">
@@ -90,42 +156,11 @@ const ProjectsCard = ({
         </div>
       </div>
 
-      {/* Right Column: Screenshot Container */}
-      <div className="project-card-image-section">
+      {/* Right Column: Screenshot Container (hidden on mobile) */}
+      <div className="project-card-image-section desktop-screenshot-section">
         <div className="project-image-container">
-          {!imageError ? (
-            <motion.img 
-              src={image} 
-              alt={`${title} screenshot`} 
-              className="project-image" 
-              onError={() => setImageError(true)}
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-            />
-          ) : (
-            <div className="project-image-placeholder">
-              <div className="placeholder-glow-effect"></div>
-              <div className="placeholder-inner">
-                <div className="placeholder-icon-wrapper">
-                  {renderPlaceholderIcon()}
-                </div>
-                <div className="placeholder-details">
-                  <span className="placeholder-project-title">{title}</span>
-                  <span className="placeholder-tagline">Interactive Preview</span>
-                </div>
-                <div className="placeholder-mockup-elements">
-                  <div className="mockup-line-long"></div>
-                  <div className="mockup-line-short"></div>
-                  <div className="mockup-dots">
-                    <span className="mockup-dot"></span>
-                    <span className="mockup-dot"></span>
-                    <span className="mockup-dot"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-          <div className="project-image-overlay"></div>
+          {renderScreenshot(false)}
+          {image && !imageError && <div className="project-image-overlay"></div>}
         </div>
       </div>
     </motion.article>

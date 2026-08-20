@@ -134,12 +134,14 @@
 
 /* Highlight style for primary work */
 .project-card.primary-project {
-  border: 1px solid rgba(139, 92, 246, 0.25);
+  border: 1px solid rgba(139, 92, 246, 0.35);
   background: linear-gradient(
     145deg, 
     rgba(15, 10, 30, 0.7) 0%, 
     rgba(10, 10, 20, 0.65) 100%
   );
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.18), 
+              0 0 25px rgba(139, 92, 246, 0.1) inset;
 }
 
 .project-card.primary-project::after {
@@ -283,7 +285,76 @@
   border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
-/* Right Column: Screenshot Visual Panel */
+/* Scroll offset for Projects section */
+.projects {
+  scroll-margin-top: 90px;
+}
+
+/* Category Badge style */
+.project-category {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #60a5fa;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+/* Engineering Highlights styles */
+.engineering-highlights {
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.highlights-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #a78bfa;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.highlights-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #cbd5e1;
+}
+
+.highlight-bullet {
+  color: #c084fc;
+  font-weight: bold;
+  user-select: none;
+}
+
+.highlight-text {
+  color: #cbd5e1;
+}
+
+/* Dual mobile/desktop toggle */
+.mobile-screenshot-section {
+  display: none;
+}
+
+.desktop-screenshot-section {
+  display: block;
+}
+
+/* Right/Desktop Column: Screenshot Visual Panel */
 .project-card-image-section {
   position: relative;
   width: 100%;
@@ -296,21 +367,25 @@
   position: relative;
   overflow: hidden;
   display: flex;
+  padding: 24px;
 }
 
 .project-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 16px;
+  border: 1.5px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.15), 0 0 15px rgba(96, 165, 250, 0.08);
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Side mask overlay for smooth fusion with content column */
 .project-image-overlay {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(10, 10, 20, 0.95) 0%, transparent 20%),
-              linear-gradient(0deg, rgba(10, 10, 20, 0.4) 0%, transparent 50%);
+  inset: 24px;
+  border-radius: 16px;
+  background: linear-gradient(90deg, rgba(10, 10, 20, 0.4) 0%, transparent 20%);
   pointer-events: none;
 }
 
@@ -325,7 +400,9 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  border-left: 1px solid rgba(139, 92, 246, 0.08);
+  border-radius: 16px;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.15);
 }
 
 .placeholder-glow-effect {
@@ -541,25 +618,43 @@
 @media (max-width: 900px) {
   .project-card {
     grid-template-columns: 100%;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto;
     width: 84vw;
     display: flex;
-    flex-direction: column-reverse; /* image on top, content below */
+    flex-direction: column; /* Normal layout order: details then image then links */
   }
 
-  .project-card-image-section {
+  .desktop-screenshot-section {
+    display: none;
+  }
+
+  .mobile-screenshot-section {
+    display: block;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .mobile-screenshot-section .project-image-container {
     height: 250px;
+    padding: 0;
+    border-radius: 12px;
+    overflow: hidden;
   }
 
-  .project-image-placeholder {
+  .mobile-screenshot-section .project-image {
+    border-radius: 12px;
+  }
+
+  .mobile-screenshot-section .project-image-placeholder {
     min-height: 250px;
-    border-left: none;
-    border-bottom: 1px solid rgba(139, 92, 246, 0.08);
+    border-radius: 12px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
   }
 
   .project-image-overlay {
-    background: linear-gradient(0deg, rgba(10, 10, 20, 0.95) 0%, transparent 40%),
-                linear-gradient(180deg, rgba(10, 10, 20, 0.4) 0%, transparent 40%);
+    inset: 0;
+    border-radius: 12px;
+    background: linear-gradient(0deg, rgba(10, 10, 20, 0.4) 0%, transparent 40%);
   }
 
   .project-card-content {
@@ -590,11 +685,15 @@
     border-radius: 16px;
   }
 
-  .project-card-image-section {
+  .mobile-screenshot-section {
+    margin-bottom: 20px;
+  }
+
+  .mobile-screenshot-section .project-image-container {
     height: 180px;
   }
 
-  .project-image-placeholder {
+  .mobile-screenshot-section .project-image-placeholder {
     min-height: 180px;
   }
 

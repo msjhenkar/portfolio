@@ -24,7 +24,16 @@ body {
 }
 
 html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
   overflow-x: hidden;
+}
+
+.projects,
+.skills-section,
+.about-section,
+.contact-section {
+  scroll-margin-top: 90px;
 }
 
 .content {
