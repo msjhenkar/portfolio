@@ -1,16 +1,55 @@
-# React + Vite
+# Jhenkar M S — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🔗 **Live site:** [jhenkarms.vercel.app](https://jhenkarms.vercel.app)
 
-Currently, two official plugins are available:
+Personal developer portfolio built to showcase my projects, skills, and experience as I look for entry-level Software Engineering roles.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🛠️ Built With
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React.js** (Vite)
+- **Tailwind CSS**
+- Deployed on **Vercel**
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+- Responsive, single-page portfolio with smooth section navigation
+- About / bio section
+- Skills overview
+- Featured project showcase with links to live demos and source code
+- Contact / social links section
+
+---
+
+## 👨‍💻 About Me
+
+I'm a 2025 Information Science & Engineering graduate from CMR Institute of Technology (CMRIT), Bengaluru, currently seeking entry-level Software Engineering roles. My primary stack is **Java / Spring Boot** on the backend and **React.js** on the frontend, with hands-on experience in MySQL, PostgreSQL, and Python.
+
+Previously worked as a Data Analyst Apprentice at ANZ Bank, working with payment infrastructure and cloud migration data using Qlik Sense dashboards.
+
+---
+
+## 🚀 Featured Projects
+
+### [Application Tracker](https://github.com/msjhenkar/application-tracker)
+Full-stack job application tracker — React/Vite frontend, Spring Boot 4 backend, MySQL database. Features stateless JWT authentication, resume storage, and AI-powered resume/job matching via the Groq LLM API (llama-3.3-70b-versatile).
+
+### BrewCafe
+Café management system built with Spring Boot, React.js, and MySQL. Implements role-based access control (RBAC) and 15+ REST APIs for managing orders, inventory, and staff.
+
+### WanderLust
+Travel platform built with Django REST Framework, JWT authentication, and PostgreSQL.
+
+---
+
+## 📫 Connect With Me
+
+- Portfolio: [jhenkarms.vercel.app](https://jhenkarms.vercel.app)
+- GitHub: [@msjhenkar](https://github.com/msjhenkar)
+
+---
+
+⭐ If you found this portfolio interesting, feel free to star the repo!
